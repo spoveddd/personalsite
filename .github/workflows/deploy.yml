@@ -1,27 +1,33 @@
-name: Deploy to Server
+name: Deploy to Server via SCP
 
 on:
   push:
     branches:
-      - main  
+      - main  # Срабатывает при пуше в ветку main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Клонируем репозиторий с GitHub
       - name: Checkout репозитория
         uses: actions/checkout@v4
 
+      # 2. Устанавливаем SSH-ключ для подключения к серверу
       - name: Установка SSH-ключа
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Деплой на сервер
+      # 3. Копируем файлы на сервер через SCP
+      - name: Копирование файлов на сервер
+        run: |
+          scp -o StrictHostKeyChecking=no -r ./ root@194.87.74.60:/var/www/html/
+
+      # 4. Перезапускаем Nginx
+      - name: Перезапуск Nginx на сервере
         run: |
           ssh -o StrictHostKeyChecking=no root@194.87.74.60 << 'EOF'
-            cd /var/www/html
-            git pull origin main
-            sudo systemctl restart nginx  # Перезапуск Nginx
+            systemctl restart nginx
           EOF
