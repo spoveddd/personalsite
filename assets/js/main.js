@@ -67,15 +67,17 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            let response = JSON.parse(xhr.responseText);
+            let response = JSON.parse(xhr.responseText); // Разбираем JSON-ответ
 
-            // Показываем уведомление с результатом
+            // Проверяем успешность отправки
             let notification = document.getElementById('notification');
             let notificationMessage = document.getElementById('notificationMessage');
             let closeNotification = document.getElementById('closeNotification');
 
-            notificationMessage.textContent = response.message;
+            notificationMessage.textContent = response.message; // Выводим сообщение из ответа
             notification.className = 'notification'; // сбрасываем предыдущие классы
+
+            // В зависимости от статуса ответа, изменяем стиль уведомления
             if (response.status === 'error') {
                 notification.classList.add('error');
             }
