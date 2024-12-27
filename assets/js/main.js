@@ -101,5 +101,3 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     xhr.send(formData); // Отправляем данные на сервер
 });
 
-
-
