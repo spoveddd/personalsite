@@ -411,6 +411,16 @@ img{
   }
 }
 
+/* Анимация скрытия уведомления */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Ошибка - красный цвет */
 .notification.error {
   background-color: #dc3545; /* Красный для ошибок */

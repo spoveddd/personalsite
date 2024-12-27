@@ -69,35 +69,30 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let response = JSON.parse(xhr.responseText); // Разбираем JSON-ответ
 
-            console.log(response); // Проверка, что сервер правильно отвечает
-
+            console.log(response);
             // Проверяем успешность отправки
             let notification = document.getElementById('notification');
             let notificationMessage = document.getElementById('notificationMessage');
-            let closeNotification = document.getElementById('closeNotification');
 
-            notificationMessage.textContent = response.message; // Текст сообщения от сервера
-            notification.className = 'notification'; // Сбрасываем предыдущие классы
+            notificationMessage.textContent = decodeURIComponent(response.message); // Декодируем текст для корректного отображения
+            notification.className = 'notification'; // сбрасываем предыдущие классы
 
             // В зависимости от статуса ответа, изменяем стиль уведомления
             if (response.status === 'error') {
                 notification.classList.add('error');
             }
 
-            notification.style.display = 'block'; // Показать уведомление
+            notification.style.display = 'flex'; // Показываем уведомление с использованием flexbox
 
-            // Закрытие уведомления по кнопке
-            closeNotification.onclick = function() {
-                notification.style.display = 'none';
-            };
-
-            // Закрытие уведомления через 3 секунды
+            // Скрытие уведомления через 3 секунды
             setTimeout(function() {
-                notification.style.display = 'none';
+                notification.style.animation = 'fadeOut 1s forwards'; // Применяем анимацию исчезновения
+                setTimeout(function() {
+                    notification.style.display = 'none'; // Прячем уведомление по завершению анимации
+                }, 1000); // Время, совпадающее с продолжительностью анимации
             }, 3000);
         }
     };
    
-    xhr.send(formData); // Отправляем данные на сервер
+    xhr.send(formData);
 });
-
