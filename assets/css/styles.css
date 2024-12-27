@@ -574,13 +574,12 @@ img{
 
 .feedback-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row; /* Заголовки будут в одном ряду */
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .feedback-field {
-  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column; /* Элементы внутри должны располагаться вертикально */
 }

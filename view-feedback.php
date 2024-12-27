@@ -23,17 +23,15 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
                     <div class="feedback-header">
                         <div class="feedback-field">
                             <strong>Имя:</strong>
-                            <h3 class="feedback-name"><?php echo htmlspecialchars($row['name']); ?></h3>
+                            <span class="feedback-name"><?php echo htmlspecialchars($row['name']); ?></span>
                         </div>
-                        <?php if (!empty($row['company'])) { ?>
-                            <div class="feedback-field">
-                                <strong>Название компании:</strong>
-                                <span class="feedback-company"><?php echo "(" . htmlspecialchars($row['company']) . ")"; ?></span>
-                            </div>
-                        <?php } ?>
+                        <div class="feedback-field">
+                            <strong>Название компании:</strong>
+                            <span class="feedback-company"><?php echo htmlspecialchars($row['company']); ?></span>
+                        </div>
                         <div class="feedback-field">
                             <strong>Почта:</strong>
-                            <span class="feedback-email"><?php echo "(" . htmlspecialchars($row['email']) . ")"; ?></span>
+                            <span class="feedback-email"><?php echo htmlspecialchars($row['email']); ?></span>
                         </div>
                     </div>
                     <div class="feedback-message-container">
