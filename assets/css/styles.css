@@ -375,30 +375,52 @@ img{
   outline: none; 
 }
 
-/* ===== NOTIFICATIOS =====*/
+/* ===== NOTIFICATIONS =====*/
 .notification {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #28a745; /* Зеленый для успешных сообщений */
+  background-color: var(--first-color); /* Синий для успешных сообщений */
   color: white;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Увеличенная тень для яркости */
   display: none; /* Скрыто по умолчанию */
   z-index: 1000;
   text-align: center;
   max-width: 400px;
   width: 100%;
+  font-family: var(--body-font); /* Шрифт Poppins */
+  animation: slideIn 0.3s ease-in-out; /* Добавим анимацию появления */
 }
+
+/* Анимация появления уведомления */
+@keyframes slideIn {
+  0% {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+/* Ошибка - красный цвет */
 .notification.error {
   background-color: #dc3545; /* Красный для ошибок */
 }
+
+/* Стиль текста внутри уведомления */
 .notification p {
   margin: 0;
   font-size: 1.1rem;
+  font-weight: var(--font-semi); /* Полужирный шрифт */
+  color: white;
 }
+
+/* Кнопка закрытия уведомления */
 .notification button {
   margin-top: 1rem;
   background-color: transparent;
@@ -406,6 +428,14 @@ img{
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  transition: background-color 0.3s;
+}
+
+/* Эффект на кнопку при наведении */
+.notification button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 
