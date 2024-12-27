@@ -354,6 +354,11 @@ img{
   margin-left: auto;
 }
 
+.contact__button-container {
+  text-align: center; 
+  margin-top: 20px;    
+}
+
 /* ===== FOOTER =====*/
 .footer{
   background-color: var(--second-color);
