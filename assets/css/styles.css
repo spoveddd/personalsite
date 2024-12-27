@@ -421,11 +421,11 @@ img{
 }
 
 /* ===== Кнопка закрытия уведомления ===== */
-.notification button {
+#closeNotification {
   margin-top: 1rem;
-  background-color: transparent;
+  background-color: var(--first-color);  /* Цвет фона кнопки */
   color: white;
-  border: 1px solid white; /* Добавляем белую рамку */
+  border: none;
   font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -434,9 +434,9 @@ img{
 }
 
 /* Эффект на кнопку при наведении */
-.notification button:hover {
+#closeNotification:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Легкая подсветка */
-  color: var(--first-color); /* Смена цвета текста на синий при наведении */
+  color: var(--second-color); /* Смена цвета текста на темный */
 }
 
 
