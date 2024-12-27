@@ -244,7 +244,7 @@ img{
 }
 
 .button:hover {
-  box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+  box-shadow: none;
 }
 /* ===== ABOUT =====*/
 .about__container{
@@ -370,7 +370,6 @@ img{
   margin-top: 20px;       
   border: none;  
   outline: none; 
-  box-shadow: none;
 }
 
 
