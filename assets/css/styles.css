@@ -375,6 +375,39 @@ img{
   outline: none; 
 }
 
+/* ===== NOTIFICATIOS =====*/
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28a745; /* Зеленый для успешных сообщений */
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Скрыто по умолчанию */
+  z-index: 1000;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+.notification.error {
+  background-color: #dc3545; /* Красный для ошибок */
+}
+.notification p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.notification button {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 
 /* ===== FOOTER =====*/
 .footer{

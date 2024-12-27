@@ -56,6 +56,45 @@ sr.reveal('.work__img',{interval: 200});
 /*SCROLL CONTACT*/
 sr.reveal('.contact__input',{interval: 200}); 
 
+/*===== FEEDBACK FORM SUBMISSION =====*/
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Отменяем стандартное поведение формы
+
+    let formData = new FormData(this);
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/submit-feedback.php', true);
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let response = JSON.parse(xhr.responseText);
+
+            // Показываем уведомление с результатом
+            let notification = document.getElementById('notification');
+            let notificationMessage = document.getElementById('notificationMessage');
+            let closeNotification = document.getElementById('closeNotification');
+
+            notificationMessage.textContent = response.message;
+            notification.className = 'notification'; // сбрасываем предыдущие классы
+            if (response.status === 'error') {
+                notification.classList.add('error');
+            }
+
+            notification.style.display = 'block';
+
+            // Закрытие уведомления по кнопке
+            closeNotification.onclick = function() {
+                notification.style.display = 'none';
+            };
+
+            // Закрытие уведомления через 3 секунды
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    };
+    xhr.send(formData);
+});
 
 
 

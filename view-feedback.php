@@ -14,7 +14,7 @@ while ($row = $result->fetchArray()) {
     
     // Добавляем название компании, если оно есть
     if (!empty($row['company'])) {
-        echo " <small>(" . htmlspecialchars($row['company']) . ")</small>";
+        echo " (" . htmlspecialchars($row['company']) . ")";
     }
     echo " (" . htmlspecialchars($row['email']) . ")</h3>";
     

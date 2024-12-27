@@ -18,10 +18,16 @@ $stmt->bindValue(':company', $company, SQLITE3_TEXT);
 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
 $stmt->bindValue(':message', $message, SQLITE3_TEXT);
 
-// Выполняем запрос
+// Выполняем запрос и возвращаем JSON ответ
+$response = [];
 if ($stmt->execute()) {
-    echo "Спасибо за ваш отзыв!";
+    $response['status'] = 'success';
+    $response['message'] = 'Спасибо за ваш отзыв!';
 } else {
-    echo "Произошла ошибка при отправке.";
+    $response['status'] = 'error';
+    $response['message'] = 'Произошла ошибка при отправке.';
 }
+
+// Возвращаем ответ в формате JSON
+echo json_encode($response);
 ?>
