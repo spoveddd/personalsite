@@ -21,13 +21,25 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
             <?php while ($row = $result->fetchArray()) { ?>
                 <div class="feedback-item">
                     <div class="feedback-header">
-                        <h3 class="feedback-name"><?php echo htmlspecialchars($row['name']); ?></h3>
+                        <div class="feedback-field">
+                            <strong>Имя:</strong>
+                            <h3 class="feedback-name"><?php echo htmlspecialchars($row['name']); ?></h3>
+                        </div>
                         <?php if (!empty($row['company'])) { ?>
-                            <span class="feedback-company"><?php echo "(" . htmlspecialchars($row['company']) . ")"; ?></span>
+                            <div class="feedback-field">
+                                <strong>Название компании:</strong>
+                                <span class="feedback-company"><?php echo "(" . htmlspecialchars($row['company']) . ")"; ?></span>
+                            </div>
                         <?php } ?>
-                        <span class="feedback-email"><?php echo "(" . htmlspecialchars($row['email']) . ")"; ?></span>
+                        <div class="feedback-field">
+                            <strong>Почта:</strong>
+                            <span class="feedback-email"><?php echo "(" . htmlspecialchars($row['email']) . ")"; ?></span>
+                        </div>
                     </div>
-                    <p class="feedback-message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></p>
+                    <div class="feedback-message-container">
+                        <strong>Содержание:</strong>
+                        <p class="feedback-message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></p>
+                    </div>
                     <small class="feedback-date"><?php echo "Оставлено: " . $row['created_at']; ?></small>
                 </div>
                 <hr>

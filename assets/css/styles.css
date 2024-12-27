@@ -579,6 +579,15 @@ img{
   margin-bottom: 1rem;
 }
 
+.feedback-field {
+  margin-bottom: 0.5rem;
+}
+
+.feedback-field strong {
+  font-weight: var(--font-semi);
+  color: var(--first-color);
+}
+
 .feedback-name {
   font-size: 1.25rem;
   font-weight: var(--font-semi);
@@ -596,10 +605,18 @@ img{
   color: #555;
 }
 
+.feedback-message-container {
+  margin-bottom: 1rem;
+}
+
+.feedback-message-container strong {
+  font-weight: var(--font-semi);
+  color: var(--first-color);
+}
+
 .feedback-message {
   font-size: 1rem;
   color: var(--second-color);
-  margin-bottom: 1rem;
 }
 
 .feedback-date {
