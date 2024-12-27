@@ -228,18 +228,19 @@ img{
   bottom: 10%;
 }
 
-/*BUTTONS*/
 /* BUTTONS */
 .button {
-  display: inline-block;       /* Сохраняем inline-block для кнопок */
+  display: inline-block;       
   background-color: var(--first-color);
   color: #fff;
   padding: .75rem 2.5rem;
   font-weight: var(--font-semi);
+  font-family: var(--body-font); 
+  font-size: var(--normal-font-size);
   border-radius: .5rem;
-  text-align: center;          /* Центрируем текст внутри кнопки */
+  text-align: center;      
   cursor: pointer;
-  text-decoration: none;       /* Убираем подчеркивание у ссылок */
+  text-decoration: none;     
 }
 
 .button:hover {
