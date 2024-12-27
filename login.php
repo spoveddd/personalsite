@@ -1,30 +1,26 @@
 <?php
-session_start(); // Стартуем сессию
+session_start();
 
-// Проверка, если уже авторизован, перенаправляем на страницу отзывов
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: view-feedback.php');
-    exit;
-}
+// Подключаемся к базе данных
+$db = new SQLite3('feedback.db');
 
-// Обработчик формы логина
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Устанавливаем логин и пароль для админа
-    $admin_username = 'admin';
-    $admin_password = 'admin_password'; // Лучше хранить пароли в зашифрованном виде!
+    // Проверяем, существует ли пользователь с таким логином
+    $query = $db->prepare("SELECT * FROM users WHERE username = :username");
+    $query->bindValue(':username', $username, SQLITE3_TEXT);
+    $result = $query->execute();
+    $user = $result->fetchArray();
 
-    // Проверяем данные
-    if ($username === $admin_username && $password === $admin_password) {
-        // Успешный логин
-        $_SESSION['logged_in'] = true;
+    if ($user && password_verify($password, $user['password'])) {
+        // Успешный вход, сохраняем имя пользователя в сессии
         $_SESSION['username'] = $username;
-        header('Location: view-feedback.php'); // Перенаправляем на страницу с отзывами
+        header('Location: view-feedback.php');
         exit;
     } else {
-        $error = 'Неверное имя пользователя или пароль';
+        $error = "Неверный логин или пароль!";
     }
 }
 ?>
@@ -34,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Логин</title>
+    <title>Авторизация</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>

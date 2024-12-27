@@ -8,7 +8,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-
 // Подключение к базе данных
 $db = new SQLite3('feedback.db');
 
