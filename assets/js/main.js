@@ -69,21 +69,22 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             let response = JSON.parse(xhr.responseText); // Разбираем JSON-ответ
 
-            console.log(response);
+            console.log(response); // Проверка, что сервер правильно отвечает
+
             // Проверяем успешность отправки
             let notification = document.getElementById('notification');
             let notificationMessage = document.getElementById('notificationMessage');
             let closeNotification = document.getElementById('closeNotification');
 
-            notificationMessage.textContent = decodeURIComponent(response.message); // Декодируем текст для корректного отображения
-            notification.className = 'notification'; // сбрасываем предыдущие классы
+            notificationMessage.textContent = response.message; // Текст сообщения от сервера
+            notification.className = 'notification'; // Сбрасываем предыдущие классы
 
             // В зависимости от статуса ответа, изменяем стиль уведомления
             if (response.status === 'error') {
                 notification.classList.add('error');
             }
 
-            notification.style.display = 'block';
+            notification.style.display = 'block'; // Показать уведомление
 
             // Закрытие уведомления по кнопке
             closeNotification.onclick = function() {
@@ -97,9 +98,8 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         }
     };
    
-    xhr.send(formData);
+    xhr.send(formData); // Отправляем данные на сервер
 });
-
 
 
 
