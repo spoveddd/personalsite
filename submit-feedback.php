@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: application/json; charset=utf-8');
+
 // Открытие базы данных
 $db = new SQLite3('feedback.db');
 
