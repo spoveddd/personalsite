@@ -355,7 +355,11 @@ img{
 }
 
 .contact__button-container {
-  text-align: center;     
+  text-align: center;
+  font-size: var(--normal-font-size);   
+  cursor: pointer;
+  border: none;
+  outline: none;
   margin-top: 20px;       
 }
 
