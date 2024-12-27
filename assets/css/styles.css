@@ -357,13 +357,20 @@ img{
   border: none;
   outline: none;
   font-size: var(--normal-font-size);
+  font-family: var(--body-font);  
+  font-weight: var(--font-semi);
   cursor: pointer;
-  margin: 0 auto;        
+  margin: 0 auto;
+  text-decoration: none;
+       
 }
 
 .contact__button-container {
   text-align: center;    
   margin-top: 20px;       
+  border: none;  
+  outline: none; 
+
 }
 
 
