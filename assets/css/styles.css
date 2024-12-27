@@ -544,6 +544,75 @@ img{
   }
 }
 
+/* ===== FEEDBACK SECTION ===== */
+.feedback-section {
+  padding: 3rem 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.feedback-section .section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--first-color);
+  margin-bottom: 2rem;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feedback-item {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--first-color);
+}
+
+.feedback-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.feedback-name {
+  font-size: 1.25rem;
+  font-weight: var(--font-semi);
+  color: var(--second-color);
+}
+
+.feedback-company {
+  font-size: 1rem;
+  color: var(--first-color);
+  font-style: italic;
+}
+
+.feedback-email {
+  font-size: 1rem;
+  color: #555;
+}
+
+.feedback-message {
+  font-size: 1rem;
+  color: var(--second-color);
+  margin-bottom: 1rem;
+}
+
+.feedback-date {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+}
+
 
 .dark-mode {
   background-color: black;

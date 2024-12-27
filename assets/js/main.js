@@ -90,7 +90,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
                 setTimeout(function() {
                     notification.style.display = 'none'; // Прячем уведомление по завершению анимации
                 }, 1000); // Время, совпадающее с продолжительностью анимации
-            }, 3000);
+            }, 2500);
         }
     };
    
