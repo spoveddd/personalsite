@@ -575,13 +575,15 @@ img{
 .feedback-header {
   display: flex;
   flex-direction: row; /* Заголовки будут в одном ряду */
-  gap: 1rem;
+  gap: 2rem; /* Увеличиваем промежутки между колонками */
   margin-bottom: 1rem;
+  width: 100%; /* Чтобы растянуть на всю ширину */
 }
 
 .feedback-field {
   display: flex;
   flex-direction: column; /* Элементы внутри должны располагаться вертикально */
+  flex-grow: 1; /* Это растягивает каждый блок, чтобы он заполнил доступное пространство */
 }
 
 .feedback-field strong {
