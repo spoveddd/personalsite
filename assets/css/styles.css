@@ -355,14 +355,10 @@ img{
 }
 
 .contact__button-container {
-  display: block;
-  border: none;
-  outline: none;
-  font-size: var(--normal-font-size);
-  cursor: pointer;
-  text-align: center; 
-   
+  text-align: center;     
+  margin-top: 20px;       
 }
+
 
 /* ===== FOOTER =====*/
 .footer{
