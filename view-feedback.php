@@ -1,4 +1,14 @@
 <?php
+
+session_start(); // Стартуем сессию
+
+// Проверка, если не авторизован, перенаправляем на страницу логина
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+
+
 // Подключение к базе данных
 $db = new SQLite3('feedback.db');
 

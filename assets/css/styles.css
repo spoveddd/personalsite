@@ -628,6 +628,68 @@ hr {
   margin-top: 1rem;
 }
 
+/* ===== LOGIN SECTION ===== */
+.login-section {
+  padding: 3rem 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-section .section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--first-color);
+  margin-bottom: 1.5rem;
+}
+
+.login-section .error {
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.login-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-section label {
+  font-size: 1rem;
+  color: var(--second-color);
+}
+
+.login-section input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.login-section input:focus {
+  border-color: var(--first-color);
+}
+
+.login-section button {
+  padding: 1rem;
+  background-color: var(--first-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-section button:hover {
+  background-color: var(--second-color);
+}
 
 .dark-mode {
   background-color: black;
