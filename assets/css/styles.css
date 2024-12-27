@@ -610,20 +610,6 @@ hr {
   gap: 1.5rem;
 }
 
-/* ===== RESPONSIVE STYLES ===== */
-@media screen and (min-width: 768px) {
-  .bd-grid {
-      grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .bd-grid {
-      grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
 .dark-mode {
   background-color: black;
   color: white;
