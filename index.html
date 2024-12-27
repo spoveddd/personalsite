@@ -23,7 +23,7 @@
                         <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Опыт</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Связаться</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Оставить отзыв</a></li>
                         <li class="nav__item"><a class="nav__link" id="darkmode" onclick="myFunction()">Тёмный режим</a></li>
                     </ul>
                 </div>
@@ -168,15 +168,15 @@
 
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
-                <h2 class="section-title">Связаться</h2>
+                <h2 class="section-title">Оставить отзыв</h2>
 
                 <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Имя" class="contact__input">
-                        <input type="mail" placeholder="Почта" class="contact__input">
-                        <textarea name="" id="" placeholder="Сообщения/предложения" cols="0" rows="10" class="contact__input"></textarea>
-                        <a href="mailto:spoved@proton.me" target="_self" title="Почта"><input type="button" value="Отправить" class="contact__button button"></a>
-                    </form>
+                    <form action="/submit-feedback.php" method="POST" class="contact__form">
+                        <input type="text" name="name" placeholder="Имя" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Почта" class="contact__input" required>
+                        <textarea name="message" placeholder="Сообщения/предложения" cols="0" rows="10" class="contact__input" required></textarea>
+                        <input type="submit" value="Отправить" class="contact__button button">
+                    </form>                   
                 </div>
             </section>
         </main>
