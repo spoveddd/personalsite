@@ -15,9 +15,9 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <section class="section">
+    <section class="feedback-section">
         <h2 class="section-title">Отзывы</h2>
-        <div class="bd-grid">
+        <div class="feedback-list">
             <?php while ($row = $result->fetchArray()) { ?>
                 <div class="feedback-item">
                     <div class="feedback-header">
