@@ -229,18 +229,22 @@ img{
 }
 
 /*BUTTONS*/
-.button{
-  display: inline-block;
+/* BUTTONS */
+.button {
+  display: inline-block;       /* Сохраняем inline-block для кнопок */
   background-color: var(--first-color);
   color: #fff;
   padding: .75rem 2.5rem;
   font-weight: var(--font-semi);
   border-radius: .5rem;
-}
-.button:hover{
-  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+  text-align: center;          /* Центрируем текст внутри кнопки */
+  cursor: pointer;
+  text-decoration: none;       /* Убираем подчеркивание у ссылок */
 }
 
+.button:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
 /* ===== ABOUT =====*/
 .about__container{
   row-gap: 2rem;
@@ -334,8 +338,8 @@ img{
   transform: scale(1.1);
 }
 
-/* ===== CONTACT =====*/
-.contact__input{
+/* ===== CONTACT ===== */
+.contact__input {
   width: 100%;
   font-size: var(--normal-font-size);
   font-weight: var(--font-semi);
@@ -345,21 +349,19 @@ img{
   outline: none;
   margin-bottom: var(--mb-4);
 }
-.contact__button{
-  display: block;
+
+
+.contact__button {
+  display: inline-block;  
   border: none;
   outline: none;
   font-size: var(--normal-font-size);
   cursor: pointer;
-  margin-left: auto;
+  margin: 0 auto;        
 }
 
 .contact__button-container {
-  text-align: center;
-  font-size: var(--normal-font-size);   
-  cursor: pointer;
-  border: none;
-  outline: none;
+  text-align: center;    
   margin-top: 20px;       
 }
 
