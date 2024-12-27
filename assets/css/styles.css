@@ -581,6 +581,8 @@ img{
 
 .feedback-field {
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column; /* Элементы внутри должны располагаться вертикально */
 }
 
 .feedback-field strong {
@@ -594,12 +596,7 @@ img{
   color: var(--second-color);
 }
 
-.feedback-company {
-  font-size: 1rem;
-  color: var(--first-color);
-  font-style: italic;
-}
-
+.feedback-company,
 .feedback-email {
   font-size: 1rem;
   color: #555;
