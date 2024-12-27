@@ -393,6 +393,10 @@ img{
   width: 100%;
   font-family: var(--body-font); /* Шрифт Poppins */
   animation: slideIn 0.3s ease-in-out; /* Добавим анимацию появления */
+  justify-content: center; /* Горизонтальное выравнивание */
+  align-items: center; /* Вертикальное выравнивание */
+  flex-direction: column; /* Чтобы текст был на одном уровне */
+
 }
 
 /* Анимация появления уведомления */
@@ -419,27 +423,6 @@ img{
   font-weight: var(--font-semi); /* Полужирный шрифт */
   color: white;
 }
-
-/* ===== Кнопка закрытия уведомления ===== */
-#closeNotification {
-  margin-top: 1rem;
-  background-color: var(--first-color);  /* Цвет фона кнопки */
-  color: white;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Эффект на кнопку при наведении */
-#closeNotification:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Легкая подсветка */
-  color: var(--second-color); /* Смена цвета текста на темный */
-}
-
-
 
 /* ===== FOOTER =====*/
 .footer{
