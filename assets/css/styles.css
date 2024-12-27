@@ -545,72 +545,82 @@ img{
 }
 
 /* ===== FEEDBACK SECTION ===== */
-.feedback-section {
-  padding: 3rem 1rem;
-  max-width: 1024px;
-  margin: 0 auto;
-}
-
-.feedback-section .section-title {
-  font-size: 2rem;
-  text-align: center;
-  color: var(--first-color);
-  margin-bottom: 2rem;
-}
-
-.feedback-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
 .feedback-item {
   background-color: #fff;
   padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: .5rem;
+  box-shadow: 0 4px 15px rgba(14, 36, 49, 0.1);
   border-left: 4px solid var(--first-color);
+  margin-bottom: var(--mb-3);
 }
 
 .feedback-header {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--mb-2);
 }
 
 .feedback-name {
-  font-size: 1.25rem;
+  font-size: var(--normal-font-size);
   font-weight: var(--font-semi);
-  color: var(--second-color);
+  color: var(--first-color);
 }
 
 .feedback-company {
-  font-size: 1rem;
-  color: var(--first-color);
+  font-size: var(--normal-font-size);
   font-style: italic;
+  color: var(--first-color);
 }
 
 .feedback-email {
-  font-size: 1rem;
-  color: #555;
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
 }
 
 .feedback-message {
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
   color: var(--second-color);
-  margin-bottom: 1rem;
+  margin-bottom: var(--mb-3);
 }
 
 .feedback-date {
-  font-size: 0.875rem;
+  font-size: var(--normal-font-size);
   color: #777;
+  font-weight: var(--font-semi);
 }
 
 hr {
   border: 0;
   border-top: 1px solid #eee;
-  margin-top: 1rem;
+  margin-top: var(--mb-3);
+}
+
+.section-title {
+  color: var(--first-color);
+  text-align: center;
+  margin-bottom: var(--mb-4);
+}
+
+.bd-grid {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media screen and (min-width: 768px) {
+  .bd-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bd-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 
