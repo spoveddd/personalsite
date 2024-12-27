@@ -1,22 +1,27 @@
 <?php
-// Подключение к базе данных
+// Открытие базы данных
 $db = new SQLite3('feedback.db');
 
-// Получение данных из формы
+// Получаем данные из формы
 $name = $_POST['name'];
-$email = $_POST['email'];
+$company = isset($_POST['company']) ? $_POST['company'] : ''; // Обрабатываем пустое значение для компании
+$email = isset($_POST['email']) ? $_POST['email'] : ''; // Почта необязательная
 $message = $_POST['message'];
 
-// Защита от SQL-инъекций
-$stmt = $db->prepare('INSERT INTO feedback (name, email, message) VALUES (:name, :email, :message)');
+// Вставка данных в базу
+$query = "INSERT INTO feedback (name, company, email, message) VALUES (:name, :company, :email, :message)";
+$stmt = $db->prepare($query);
+
+// Привязываем параметры
 $stmt->bindValue(':name', $name, SQLITE3_TEXT);
+$stmt->bindValue(':company', $company, SQLITE3_TEXT);
 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
 $stmt->bindValue(':message', $message, SQLITE3_TEXT);
 
-// Выполнение запроса
+// Выполняем запрос
 if ($stmt->execute()) {
-    echo "Ваше сообщение успешно отправлено!";
+    echo "Спасибо за ваш отзыв!";
 } else {
-    echo "Ошибка при отправке сообщения.";
+    echo "Произошла ошибка при отправке.";
 }
 ?>

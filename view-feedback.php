@@ -1,17 +1,23 @@
 <?php
-// Подключение к базе данных
+// Открытие базы данных
 $db = new SQLite3('feedback.db');
 
-// Получение всех записей
-$result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
+// Запрос на получение всех отзывов
+$query = "SELECT * FROM feedback ORDER BY id DESC";
+$result = $db->query($query);
 
-// Отображение данных
-echo "<h1>Отзывы</h1>";
+echo "Отзывы";
+echo "<table>";
+echo "<tr><th>Имя</th><th>Компания</th><th>Почта</th><th>Сообщение</th></tr>";
+
 while ($row = $result->fetchArray()) {
-    echo "<div>";
-    echo "<h3>" . htmlspecialchars($row['name']) . " (" . htmlspecialchars($row['email']) . ")</h3>";
-    echo "<p>" . nl2br(htmlspecialchars($row['message'])) . "</p>";
-    echo "<small>Оставлено: " . $row['created_at'] . "</small>";
-    echo "</div><hr>";
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['company']) . "</td>";  // Показываем название компании
+    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['message']) . "</td>";
+    echo "</tr>";
 }
+
+echo "</table>";
 ?>

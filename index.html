@@ -172,13 +172,14 @@
 
                 <div class="contact__container bd-grid">
                     <form action="/submit-feedback.php" method="POST" class="contact__form">
-                        <input type="text" name="name" placeholder="Имя" class="contact__input" required>
-                        <input type="email" name="email" placeholder="Почта" class="contact__input" required>
-                        <textarea name="message" placeholder="Сообщения/предложения" cols="0" rows="10" class="contact__input" required></textarea>
+                        <input type="text" name="name" placeholder="Ваше имя" class="contact__input" required>
+                        <input type="text" name="company" placeholder="Название компании" class="contact__input">
+                        <input type="email" name="email" placeholder="Почта" class="contact__input">
+                        <textarea name="message" placeholder="Сообщение" cols="0" rows="10" class="contact__input" required></textarea>
                         <div class="contact__button-container">
                             <input type="submit" value="Отправить" class="button">
                         </div>
-                    </form>                   
+                    </form>                                
                 </div>
             </section>
         </main>
