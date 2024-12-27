@@ -420,23 +420,25 @@ img{
   color: white;
 }
 
-/* Кнопка закрытия уведомления */
+/* ===== Кнопка закрытия уведомления ===== */
 .notification button {
   margin-top: 1rem;
   background-color: transparent;
   color: white;
-  border: none;
+  border: 1px solid white; /* Добавляем белую рамку */
   font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Эффект на кнопку при наведении */
 .notification button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2); /* Легкая подсветка */
+  color: var(--first-color); /* Смена цвета текста на синий при наведении */
 }
+
 
 
 /* ===== FOOTER =====*/
