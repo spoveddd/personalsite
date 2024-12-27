@@ -4,8 +4,8 @@ $db = new SQLite3('feedback.db');
 
 // Получаем данные из формы
 $name = $_POST['name'];
-$company = isset($_POST['company']) ? $_POST['company'] : ''; // Обрабатываем пустое значение для компании
-$email = isset($_POST['email']) ? $_POST['email'] : ''; // Почта необязательная
+$company = isset($_POST['company']) ? $_POST['company'] : ''; 
+$email = isset($_POST['email']) ? $_POST['email'] : ''; 
 $message = $_POST['message'];
 
 // Вставка данных в базу
