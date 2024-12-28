@@ -9,7 +9,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 }
 
 // Подключение к базе данных
-$db = new SQLite3('feedback.db');
+$db = new SQLite3('assets/db/feedback.db');
 
 // Получение всех записей
 $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
