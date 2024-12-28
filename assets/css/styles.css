@@ -565,11 +565,19 @@ img{
 }
 
 .feedback-item {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid var(--first-color);
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-item hr {
+  border: none;
+  border-top: 1px solid white;
+  margin-top: 20px;
 }
 
 .feedback-header {
@@ -620,6 +628,17 @@ img{
 .feedback-date {
   font-size: 0.875rem;
   color: #777;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header form {
+  margin: 0;
 }
 
 hr {

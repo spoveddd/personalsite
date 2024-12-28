@@ -32,11 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 </head>
 <body>
     <section class="feedback-section">
-        <h2 class="section-title">Отзывы</h2>
-        
-        <form method="post" style="margin-top: 20px;">
-            <button type="submit" name="logout" class="button">Вернуться на главную</button>
-        </form>
+        <div class="header">
+            <h2 class="section-title">Отзывы</h2>
+            <form method="post" style="margin-top: 0;">
+                <button type="submit" name="logout" class="button">Вернуться на главную</button>
+            </form>
+        </div>
+
         <div class="feedback-list">
             <?php while ($row = $result->fetchArray()) { ?>
                 <div class="feedback-item">
@@ -60,11 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
                     </div>
                     <small class="feedback-date"><?php echo "Оставлено: " . date("Y-m-d H:i:s", strtotime($row['created_at'])); ?></small>
                 </div>
-                <hr>
             <?php } ?>
         </div>
-
-
     </section>
 </body>
 </html>
