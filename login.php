@@ -28,6 +28,10 @@ $tables = $db->query("SELECT name FROM sqlite_master WHERE type='table';");
 while ($table = $tables->fetchArray(SQLITE3_ASSOC)) {
     echo "Таблица: " . $table['name'] . "<br>";
 }
+if (!$db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")->fetchArray()) {
+    echo "Таблица 'users' не найдена в базе данных.";
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['username'], $_POST['password'])) {
