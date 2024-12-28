@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Подключаемся к базе данных
-$db = new SQLite3('users.db');
+$db = new SQLite3('assets/db/users.db');
 
 // Устанавливаем максимальное количество попыток
 $max_attempts = 3;
