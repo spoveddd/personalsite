@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Подключаемся к базе данных
+echo "Текущий путь: " . __DIR__;
 $db = new SQLite3('feedback.db');
 
 // Устанавливаем максимальное количество попыток
@@ -21,6 +22,11 @@ if (isset($_SESSION['attempts']) && $_SESSION['attempts'] >= $max_attempts) {
         unset($_SESSION['attempts']);
         unset($_SESSION['last_attempt']);
     }
+}
+
+$tables = $db->query("SELECT name FROM sqlite_master WHERE type='table';");
+while ($table = $tables->fetchArray(SQLITE3_ASSOC)) {
+    echo "Таблица: " . $table['name'] . "<br>";
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
