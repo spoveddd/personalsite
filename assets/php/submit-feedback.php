@@ -3,7 +3,7 @@
 header('Content-Type: application/json; charset=utf-8'); 
 
 // Открытие базы данных
-$db = new SQLite3('assets/db/feedback.db');
+$db = new SQLite3('../db/feedback.db');
 
 // Получаем данные из формы
 $name = $_POST['name'];
