@@ -60,7 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
                         <strong>Содержание:</strong>
                         <p class="feedback-message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></p>
                     </div>
-                    <small class="feedback-date"><?php echo "Оставлено: " . date("Y-m-d H:i:s", strtotime($row['created_at'])); ?></small>
+                    <small class="feedback-date">
+                        <?php
+                        $created_at = new DateTime($row['created_at'], new DateTimeZone('UTC')); // Исходная дата в UTC
+                        $created_at->setTimezone(new DateTimeZone('Europe/Moscow')); // Переводим в Московский часовой пояс
+                        echo "Оставлено: " . $created_at->format('Y-m-d H:i:s'); // Форматируем для вывода
+                        ?>
+                    </small>
                 </div>
             <?php } ?>
         </div>
