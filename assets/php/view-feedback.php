@@ -18,7 +18,7 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['logout'])) {
         session_destroy(); // Завершаем сессию
-        header("Location: index.html"); // Перенаправляем на главную страницу
+        header("Location: /index.html"); // Перенаправляем на главную страницу
         exit;
     }
 
