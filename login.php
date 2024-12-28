@@ -5,11 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Подключаемся к базе данных
-echo "Текущий путь: " . __DIR__ . "<br>";  // Для отладки, можно удалить
 $db = new SQLite3('users.db');
-
-$db_path = realpath('users.db');
-echo "PHP использует базу данных по пути: $db_path<br>";
 
 // Устанавливаем максимальное количество попыток
 $max_attempts = 3;

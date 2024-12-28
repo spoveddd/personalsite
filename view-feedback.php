@@ -1,5 +1,6 @@
 <?php
-session_start(); // Стартуем сессию
+session_start();
+date_default_timezone_set('Europe/Moscow'); // Устанавливаем московский часовой пояс
 
 // Проверка, если не авторизован, перенаправляем на страницу логина
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -12,6 +13,13 @@ $db = new SQLite3('feedback.db');
 
 // Получение всех записей
 $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
+
+// Обработка выхода (сброс сессии)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+    session_destroy(); // Завершаем сессию
+    header("Location: index.html"); // Перенаправляем на главную страницу
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +33,10 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
 <body>
     <section class="feedback-section">
         <h2 class="section-title">Отзывы</h2>
+        
+        <form method="post" style="margin-top: 20px;">
+            <button type="submit" name="logout" style="padding: 10px 20px; font-size: 16px;">Вернуться на главную</button>
+        </form>
         <div class="feedback-list">
             <?php while ($row = $result->fetchArray()) { ?>
                 <div class="feedback-item">
@@ -46,11 +58,13 @@ $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
                         <strong>Содержание:</strong>
                         <p class="feedback-message"><?php echo nl2br(htmlspecialchars($row['message'])); ?></p>
                     </div>
-                    <small class="feedback-date"><?php echo "Оставлено: " . $row['created_at']; ?></small>
+                    <small class="feedback-date"><?php echo "Оставлено: " . date("Y-m-d H:i:s", strtotime($row['created_at'])); ?></small>
                 </div>
                 <hr>
             <?php } ?>
         </div>
+
+
     </section>
 </body>
 </html>
