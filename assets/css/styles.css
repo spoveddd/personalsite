@@ -554,32 +554,35 @@ img{
 .feedback-section .section-title {
   font-size: 2rem;
   text-align: center;
-  color: white;
-  background-color: #007bff;
+  color: #007bff; /* Синий цвет для заголовка */
+  background-color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
+  border: 2px solid #007bff; /* Добавляем синюю рамку вокруг заголовка */
+  display: inline-block;
 }
 
 .feedback-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .feedback-item {
-  background-color: #007bff;
-  color: white;
+  background-color: white;
+  color: #007bff; /* Синий текст */
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 15px;
+  border: 2px solid #007bff; /* Синяя рамка вокруг отзыва */
+  border-radius: 10px;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
 }
 
 .feedback-item hr {
   border: none;
-  border-top: 1px solid white;
+  border-top: 1px solid #007bff;
   margin-top: 20px;
 }
 
@@ -599,19 +602,19 @@ img{
 
 .feedback-field strong {
   font-weight: var(--font-semi);
-  color: white;
+  color: #007bff; /* Синий цвет для меток */
 }
 
 .feedback-name {
   font-size: 1.25rem;
   font-weight: var(--font-semi);
-  color: #ddd;
+  color: #007bff;
 }
 
 .feedback-company,
 .feedback-email {
   font-size: 1rem;
-  color: #bbb;
+  color: #555;
 }
 
 .feedback-message-container {
@@ -620,17 +623,17 @@ img{
 
 .feedback-message-container strong {
   font-weight: var(--font-semi);
-  color: white;
+  color: #007bff;
 }
 
 .feedback-message {
   font-size: 1rem;
-  color: #ddd;
+  color: #007bff;
 }
 
 .feedback-date {
   font-size: 0.875rem;
-  color: #ccc;
+  color: #777;
 }
 
 .header {
@@ -642,19 +645,21 @@ img{
 
 .header form {
   margin: 0;
+  padding: 0;
 }
 
-.header .button {
-  background-color: #007bff;
-  color: white;
+.logout-form .button {
+  background-color: #fff;
+  color: #007bff;
   padding: 10px 20px;
-  border: none;
+  border: 2px solid #007bff;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.header .button:hover {
-  background-color: #0056b3;
+.logout-form .button:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 hr {
@@ -662,6 +667,7 @@ hr {
   border-top: 1px solid #eee;
   margin-top: 1rem;
 }
+
 
 /* ===== LOGIN SECTION ===== */
 .login-section {

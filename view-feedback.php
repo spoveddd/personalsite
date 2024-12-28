@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     <section class="feedback-section">
         <div class="header">
             <h2 class="section-title">Отзывы</h2>
-            <form method="post" style="margin-top: 0;">
+            <form method="post" class="logout-form">
                 <button type="submit" name="logout" class="button">Вернуться на главную</button>
             </form>
         </div>
