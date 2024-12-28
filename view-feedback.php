@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
         <h2 class="section-title">Отзывы</h2>
         
         <form method="post" style="margin-top: 20px;">
-            <button type="submit" name="logout" style="padding: 10px 20px; font-size: 16px;">Вернуться на главную</button>
+            <button type="submit" name="logout" class="button">Вернуться на главную</button>
         </form>
         <div class="feedback-list">
             <?php while ($row = $result->fetchArray()) { ?>
