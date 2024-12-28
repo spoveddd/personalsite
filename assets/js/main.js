@@ -63,7 +63,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     let formData = new FormData(this);
     let xhr = new XMLHttpRequest();
 
-    xhr.open('POST', '/submit-feedback.php', true);
+    xhr.open('POST', '/assets/php/submit-feedback.php', true);
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
