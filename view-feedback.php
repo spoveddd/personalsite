@@ -15,11 +15,21 @@ $db = new SQLite3('feedback.db');
 $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
 
 // Обработка выхода (сброс сессии)
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
-    session_destroy(); // Завершаем сессию
-    header("Location: index.html"); // Перенаправляем на главную страницу
-    exit;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['logout'])) {
+        session_destroy(); // Завершаем сессию
+        header("Location: index.html"); // Перенаправляем на главную страницу
+        exit;
+    }
+
+    // Обработка удаления всех отзывов
+    if (isset($_POST['clear_reviews'])) {
+        $db->exec('DELETE FROM feedback'); // Удаляем все записи из базы
+        header("Location: view-feedback.php"); 
+        exit;
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
             <h2 class="section-title">Отзывы</h2>
             <form method="post" class="logout-form">
                 <button type="submit" name="logout" class="button">Вернуться на главную</button>
+                <button type="submit" name="clear_reviews" class="button">Очистить отзывы</button>
+
             </form>
         </div>
 
