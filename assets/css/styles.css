@@ -554,19 +554,18 @@ img{
 .feedback-section .section-title {
   font-size: 2rem;
   text-align: center;
-  color: #007bff; /* Синий цвет для заголовка */
-  background-color: #fff;
+  color: white; /* Белый текст */
+  background-color: #007bff; /* Синий фон */
   padding: 10px 20px;
   border-radius: 5px;
-  border: 2px solid #007bff; /* Добавляем синюю рамку вокруг заголовка */
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .feedback-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 .feedback-item {
@@ -645,12 +644,11 @@ img{
 
 .header form {
   margin: 0;
-  padding: 0;
 }
 
 .logout-form .button {
-  background-color: #fff;
-  color: #007bff;
+  background-color: #007bff; /* Синий фон */
+  color: white; /* Белый текст */
   padding: 10px 20px;
   border: 2px solid #007bff;
   border-radius: 5px;
@@ -658,8 +656,9 @@ img{
 }
 
 .logout-form .button:hover {
-  background-color: #007bff;
-  color: white;
+  background-color: white; /* Белый фон при наведении */
+  color: #007bff; /* Синий текст при наведении */
+  border: 2px solid #007bff;
 }
 
 hr {
