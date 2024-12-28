@@ -5,8 +5,11 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Подключаемся к базе данных
-echo "Текущий путь: " . __DIR__;
+echo "Текущий путь: " . __DIR__;  // нужно удалить после отладки
 $db = new SQLite3('feedback.db');
+
+$db_path = realpath('feedback.db');
+echo "PHP использует базу данных по пути: $db_path";
 
 // Устанавливаем максимальное количество попыток
 $max_attempts = 3;
@@ -24,13 +27,13 @@ if (isset($_SESSION['attempts']) && $_SESSION['attempts'] >= $max_attempts) {
     }
 }
 
-$tables = $db->query("SELECT name FROM sqlite_master WHERE type='table';");
-while ($table = $tables->fetchArray(SQLITE3_ASSOC)) {
-    echo "Таблица: " . $table['name'] . "<br>";
-}
-if (!$db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")->fetchArray()) {
-    echo "Таблица 'users' не найдена в базе данных.";
-}
+$tables = $db->query("SELECT name FROM feedback WHERE type='table';");  // нужно удалить после отладки
+while ($table = $tables->fetchArray(SQLITE3_ASSOC)) {  // нужно удалить после отладки
+    echo "Таблица: " . $table['name'] . "<br>";  // нужно удалить после отладки
+}  // нужно удалить после отладки
+if (!$db->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")->fetchArray()) {  // нужно удалить после отладки
+    echo "Таблица 'users' не найдена в базе данных."; // нужно удалить после отладки
+} // нужно удалить после отладки
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
