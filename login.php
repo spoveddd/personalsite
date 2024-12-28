@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 
 // Подключаемся к базе данных
 echo "Текущий путь: " . __DIR__;  // нужно удалить после отладки
-$db = new SQLite3('feedback.db');
+$db = new SQLite3('users.db');
 
-$db_path = realpath('feedback.db');
+$db_path = realpath('users.db');
 echo "PHP использует базу данных по пути: $db_path";
 
 // Устанавливаем максимальное количество попыток
