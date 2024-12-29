@@ -14,6 +14,26 @@ $db = new SQLite3('../db/feedback.db');
 // Получение всех записей
 $result = $db->query('SELECT * FROM feedback ORDER BY created_at DESC');
 
+// Функция для запроса данных из Prometheus API
+function fetchPrometheusData($query) {
+    $url = 'http://prometheus.pavlovich.live/api/v1/query?query=' . urlencode($query);
+    $response = file_get_contents($url);
+    if ($response === false) {
+        return null;
+    }
+    $data = json_decode($response, true);
+    if ($data['status'] === 'success' && isset($data['data']['result'][0]['value'])) {
+        return $data['data']['result'][0]['value'][1];
+    }
+    return null;
+}
+
+// Получаем метрики из Prometheus
+$serverUptime = fetchPrometheusData('node_time_seconds - node_boot_time_seconds');
+$loadAverage = fetchPrometheusData('node_load1');
+$responseTime = fetchPrometheusData('probe_duration_seconds{job="blackbox"}');
+
+
 // Обработка выхода (сброс сессии)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['logout'])) {
@@ -49,6 +69,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" name="clear_reviews" class="button">Очистить отзывы</button>
 
             </form>
+        </div>
+       
+        <!-- Блок мониторинга -->
+        <div class="monitoring-section">
+            <h3 class="monitoring-title">Мониторинг сервера</h3>
+            <div class="monitoring-metrics">
+                <p><strong>Состояние сервера (аптайм):</strong> <?php echo htmlspecialchars($serverUptime ? gmdate('H:i:s', $serverUptime) : 'Недоступно'); ?></p>
+                <p><strong>Средняя нагрузка:</strong> <?php echo htmlspecialchars($loadAverage ? number_format($loadAverage, 2) : 'Недоступно'); ?></p>
+                <p><strong>Время отклика:</strong> <?php echo htmlspecialchars($responseTime ? number_format($responseTime, 3) . ' сек.' : 'Недоступно'); ?></p>
+            </div>
         </div>
 
         <div class="feedback-list">
