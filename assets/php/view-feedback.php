@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
                             
                             // Показать имя файла
-                            echo "<span class='feedback-file-name'>$fileName</span>";
+                            echo "<span class='feedback-file-name'>$fileName </span>";
                             
                             // Проверяем тип файла
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) { 
