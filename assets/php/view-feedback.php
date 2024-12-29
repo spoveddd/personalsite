@@ -47,10 +47,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Обработка удаления всех отзывов
     if (isset($_POST['clear_reviews'])) {
-        $db->exec('DELETE FROM feedback'); // Удаляем все записи из базы
+        // Получаем все файлы из базы данных
+        $result = $db->query('SELECT file FROM feedback');
+        while ($row = $result->fetchArray()) {
+            $filePath = $row['file'];
+    
+            // Проверяем, что путь к файлу существует, и если файл есть, удаляем его
+            if (file_exists($filePath)) {
+                unlink($filePath); // Удаляем файл
+            }
+        }
+    
+        // Теперь удаляем все записи из базы данных
+        $db->exec('DELETE FROM feedback');
+    
+        // Перенаправляем на страницу с отзывами
         header("Location: view-feedback.php"); 
         exit;
     }
+    
 }
 
 ?>
@@ -125,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
                             
                             // Показать имя файла
-                            echo "<span class='feedback-file-name'>$fileName </span>";
+                            echo "<span class='feedback-file-name'>$fileName - </span>";
                             
                             // Проверяем тип файла
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) { 
@@ -137,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             } else {
                                 echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Скачать файл</a>";
                             }
-                            ?>
+                            ?>                              
                         </div>
                     <?php } ?>
                 </div>

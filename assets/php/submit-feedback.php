@@ -23,8 +23,8 @@ if (isset($_FILES['file'])) {
             'image/jpeg', 
             'image/png', 
             'application/pdf', 
-            'application/msword',       // Для .doc
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' // Для .docx
+            'application/msword',       
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
         ];
                 if (!in_array($_FILES['file']['type'], $allowedTypes)) {
             echo json_encode(["status" => "error", "message" => "Неверный тип файла."]);
