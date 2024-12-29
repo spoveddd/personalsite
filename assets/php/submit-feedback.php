@@ -11,6 +11,23 @@ $company = isset($_POST['company']) ? $_POST['company'] : '';
 $email = isset($_POST['email']) ? $_POST['email'] : ''; 
 $message = $_POST['message'];
 
+// Обработка загруженного файла
+$file = null;
+if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+    // Директория для сохранения файлов
+    $uploadDir = '../uploads/';
+    $fileName = basename($_FILES['file']['name']);
+    $filePath = $uploadDir . $fileName;
+
+    // Перемещение загруженного файла в нужную директорию
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $filePath)) {
+        $file = $filePath;  // Сохраняем путь к файлу
+    } else {
+        echo json_encode(["status" => "error", "message" => "Ошибка при загрузке файла."]);
+        exit;
+    }
+}
+
 // Вставка данных в базу
 $query = "INSERT INTO feedback (name, company, email, message) VALUES (:name, :company, :email, :message)";
 $stmt = $db->prepare($query);
