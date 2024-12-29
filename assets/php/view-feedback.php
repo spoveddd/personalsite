@@ -31,8 +31,11 @@ function fetchPrometheusData($query) {
 // Получаем метрики из Prometheus
 $serverUptime = fetchPrometheusData('node_time_seconds - node_boot_time_seconds');
 $loadAverage = fetchPrometheusData('node_load1');
+$cpuUsage = fetchPrometheusData('100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100)'); // Загрузка CPU
+$ramUsed = fetchPrometheusData('(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes * 100'); // Использование RAM в %
+$diskUsage = fetchPrometheusData('(node_filesystem_size_bytes{mountpoint="/"} - node_filesystem_free_bytes{mountpoint="/"}) / node_filesystem_size_bytes{mountpoint="/"} * 100'); // Использование диска
+$networkTraffic = fetchPrometheusData('rate(node_network_receive_bytes_total[1m]) + rate(node_network_transmit_bytes_total[1m])'); // Сетевой трафик в байтах/сек
 $responseTime = fetchPrometheusData('probe_duration_seconds{job="blackbox"}');
-
 
 // Обработка выхода (сброс сессии)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -77,7 +80,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="monitoring-metrics">
                 <p><strong>Состояние сервера (аптайм):</strong> <?php echo htmlspecialchars($serverUptime ? gmdate('H:i:s', $serverUptime) : 'Недоступно'); ?></p>
                 <p><strong>Средняя нагрузка:</strong> <?php echo htmlspecialchars($loadAverage ? number_format($loadAverage, 2) : 'Недоступно'); ?></p>
-                <p><strong>Время отклика:</strong> <?php echo htmlspecialchars($responseTime ? number_format($responseTime, 3) . ' сек.' : 'Недоступно'); ?></p>
+                <p><strong>Использование CPU:</strong> <?php echo htmlspecialchars($cpuUsage ? number_format($cpuUsage, 2) : 'Недоступно'); ?>%</p>
+                <p><strong>Использование RAM:</strong> <?php echo htmlspecialchars($ramUsed ? number_format($ramUsed, 2) : 'Недоступно'); ?>%</p>
+                <p><strong>Использование диска:</strong> <?php echo htmlspecialchars($diskUsage ? number_format($diskUsage, 2) : 'Недоступно'); ?>%</p>
+                <p><strong>Сетевой трафик:</strong> <?php echo htmlspecialchars($networkTraffic ? number_format($networkTraffic / 1024 / 1024, 2) : 'Недоступно'); ?> MB/s</p>
+                <p><strong>Время отклика:</strong> <?php echo htmlspecialchars($responseTime ? number_format($responseTime, 3) . ' сек.' : 'Недоступно'); ?></p>          
             </div>
         </div>
 
