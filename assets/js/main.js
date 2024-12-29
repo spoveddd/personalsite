@@ -97,8 +97,3 @@ document.getElementById('feedbackForm').addEventListener('submit', function (e) 
     xhr.send(formData);
 
 });
-
-document.getElementById('fileInput').addEventListener('change', function (event) {
-    var fileName = event.target.files[0] ? event.target.files[0].name : 'Файл не выбран';
-    document.getElementById('fileName').textContent = fileName;
-});

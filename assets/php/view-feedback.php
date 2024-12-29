@@ -116,6 +116,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         echo "Оставлено: " . $created_at->format('Y-m-d H:i:s'); // Форматируем для вывода
                         ?>
                     </small>
+                    <?php if (!empty($row['file'])) { // Если есть файл ?>
+                        <div class="feedback-file">
+                            <strong>Загруженный файл:</strong>
+                            <?php 
+                            $filePath = $row['file']; 
+                            $fileName = basename($filePath);
+                            $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
+                            
+                            // Проверяем тип файла
+                            if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) { 
+                                // Если изображение, показываем его
+                                echo "<img src='../uploads/$fileName' alt='$fileName' class='feedback-file-image' />";
+                            } elseif (in_array($fileExtension, ['pdf'])) {
+                                // Если PDF, показываем ссылку для скачивания
+                                echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Открыть PDF</a>";
+                            } else {
+                                // Для других типов, просто показываем ссылку на файл
+                                echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Скачать файл</a>";
+                            }
+                            ?>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>
