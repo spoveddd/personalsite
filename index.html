@@ -1,217 +1,235 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <link rel = "icon" href = "/assets/img/5381ef3e24609_thumb900.jpg" type = "image/x-icon">
-        <title>Pavlovich Vlad</title>
-    </head>
-    <body>
-        <!--===== HEADER DARKCODE =====-->
-        <header class="l-header" id="dark-mode">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#home" class="nav__logo">Pavlovich Vlad</a>
-                </div>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Домой</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Опыт</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Оставить отзыв</a></li>
-                        <li class="nav__item"><a href="/assets/php/view-feedback.php" class="nav__link">Войти</a></li>
-                        <li class="nav__item"><a class="nav__link" id="darkmode" onclick="myFunction()">Тёмный режим</a></li>
-                    </ul>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="/assets/img/5381ef3e24609_thumb900.jpg" type="image/x-icon">
+    <title>Pavlovich Vlad</title>
+</head>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== HOME DATA ======-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Привет,<br>Я <span class="home__title-color">Павлович Влад</span><br> Junior DevOps! </h1> 
-
-                    <a href="#contact" class="button">Оставить отзыв</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="assets/files/resume.pdf" class="button"> Резюме </a>
-                </div>
-
-                <div class="home__social">
-                    <a href="https://t.me/femid00" class="home__social-icon"><i class='bx bxl-telegram'></i></a>
-                    <a href="https://www.instagram.com/_blackstl" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
-                    <a href="https://github.com/spoveddd" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
-
-                <div class="home__img">    
-                    <img src="assets/img/PicsArt_08-17-06.18.15.jpg" alt="" class="home__img">
-                </div>
-            </section>
-
-            <!--===== ABOUT SECTION =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">Обо мне</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">Привет!</h2>
-                        <p class="about__text">Меня зовут Владислав Павлович.<br><br> Большое спасибо, что заглянули на мой сайт-портфолио.<br>
-                            Я Junior DevOps Engineer из Беларуси. В DevOps меня привлекла возможность оптимизировать и автоматизировать процессы разработки и развертывания.<br>
-                            На данный момент я обладаю хорошими знаниями в таких языках, как <strong>Python, Bash, HTML, JavaScript и Go.</strong> Я прошел большое количество курсов по DevOps и уверенно использую операционные системы семейства Linux, постоянно стремлюсь углубить свои знания в этой области.<br>
-                            Чтобы узнать больше, переходите в раздел "Навыки и проекты".<br>
-                            Если вы хотите связаться со мной, то можете это сделать через любую из социальных сетей.</span></p>
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS SECTION =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Навыки</h2>
-
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Навыки</h2>
-                        <p class="skills__text"></p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <span class="skills__name">Linux</span>
-                            </div>
-                            <div class="skills__bar skills__html">
-
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <span class="skills__name">Python</span >
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">60%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <span class="skills__name">Bash</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">50%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <span class="skills__name">DevOps-библиотеки</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>              
-                        <img src="assets/img/WhatsApp-Image-2018-09-26-at-5.08.11-PM.jpeg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
-
-            <!--===== WORK SECTION =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Путь обучения</h2>
-
-                <div class="work__container bd-grid">
-                    <div class="work__img">
-                        <a href="https://devops.codeby.school/"><img src="assets/img/work2.png" alt="Курс DevOps 1"></a>
-                        <p><strong>Курс по основам DevOps</strong></p>
-                    </div>
-                    <div class="work__img">
-                        <a href="https://devops.lifeisfile.com/courses/kubernetes_advanced//"><img src="assets/img/work1.jpg" alt="Курс DevOps 2"></a>
-                        <p><strong>Продвинутый курс по Kubernetes</strong></p>
-                    </div>
-                    <div class="work__img">
-                        <a href="https://ru.hexlet.io/courses/ansible/"><img src="assets/img/work3.png" alt="Курс DevOps 3"></a>
-                        <p><strong>Автоматизация процессов с Ansible</strong></p>
-                    </div>
-                    <div class="work__img">
-                        <a href="https://devops.lifeisfile.com/courses/ci_cd/"><img src="assets/img/redivivus logo.png" alt="Курс DevOps 4"></a>
-                        <p><strong>CI/CD на основе Jenkins</strong></p>
-                    </div>
-                    <div class="work__img">
-                        <a href="https://skillbox.ru/course/linux-os-administration/"><img src="assets/img/work4.jpg" alt="Курс DevOps 5"></a>
-                        <p><strong>Администрирование ОС Linux</strong></p>
-                    </div>
-                    <div class="work__img">
-                        <a href="https://slurm.io/docker/"><img src="assets/img/work5.png" alt="Курс DevOps 6"></a>
-                        <p><strong>Docker для админов</strong></p>
-                    </div>
-                </div>
-            </section>
-
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Оставить отзыв</h2>
-
-                <div class="contact__container bd-grid">
-                    <form id="feedbackForm" action="assets/php/submit-feedback.php" method="POST" class="contact__form">
-                        <input type="text" name="name" placeholder="Ваше имя" class="contact__input" required>
-                        <input type="text" name="company" placeholder="Название компании" class="contact__input">
-                        <input type="email" name="email" placeholder="Почта" class="contact__input">
-                        <textarea name="message" placeholder="Сообщение" cols="0" rows="10" class="contact__input" required></textarea>
-                        <div class="contact__button-container">
-                            <input type="submit" value="Отправить" class="button">
-                        </div>
-                    </form>
-                    <!-- Контейнер для уведомления -->
-                    <div id="notification" class="notification" style="display: none;">
-                        <p id="notificationMessage"></p>
-                    </div>                                
-                </div>
-            </section>
-        </main>
-
-        <!--===== FOOTER_TITLE =====-->
-        <footer class="footer">
-            <p class="footer__title">Pavlovich Vlad - Junior DevOps Engineer</p>
-            <div class="footer__social">
-                <!-- <a href="https://www.instagram.com/_blackstl" class="footer__icon"><i class='bx bxl-facebook' ></i></a> -->
-                <a href="https://www.instagram.com/_blackstl" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="https://t.me/femid00" class="footer__icon"><i class='bx bxl-telegram' ></i></a>
-                <a href="https://github.com/spoveddd" class="footer__icon"><i class='bx bxl-github' ></i></a>
+<body>
+    <!--===== HEADER DARKCODE =====-->
+    <header class="l-header" id="dark-mode">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#home" class="nav__logo">Pavlovich Vlad</a>
             </div>
-            <p>&#169; 2024. Все права защищены</p>
-        </footer>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Домой</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Навыки</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Опыт</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Отзыв</a></li>
+                    <li class="nav__item"><a href="/assets/php/view-feedback.php" class="nav__link">Войти</a></li>
+                    <li class="nav__item"><a class="nav__link" id="darkmode" onclick="myFunction()">Тёмный режим</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME DATA ======-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Привет,<br>Я <span class="home__title-color">Павлович Влад</span><br> Junior
+                    DevOps! </h1>
+
+                <a href="#contact"
+                    class="button">Отзыв</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="assets/files/resume.pdf" class="button"> Резюме </a>
+            </div>
+
+            <div class="home__social">
+                <a href="https://t.me/femid00" class="home__social-icon"><i class='bx bxl-telegram'></i></a>
+                <a href="https://www.instagram.com/_blackstl" class="home__social-icon"><i
+                        class='bx bxl-instagram'></i></a>
+                <a href="https://github.com/spoveddd" class="home__social-icon"><i class='bx bxl-github'></i></a>
+            </div>
+
+            <div class="home__img">
+                <img src="assets/img/PicsArt_08-17-06.18.15.jpg" alt="" class="home__img">
+            </div>
+        </section>
+
+        <!--===== ABOUT SECTION =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">Обо мне</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/about.jpg" alt="">
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">Привет!</h2>
+                    <p class="about__text">Меня зовут Владислав Павлович.<br><br> Большое спасибо, что заглянули на мой
+                        сайт-портфолио.<br>
+                        Я Junior DevOps Engineer из Беларуси. В DevOps меня привлекла возможность оптимизировать и
+                        автоматизировать процессы разработки и развертывания.<br>
+                        На данный момент я обладаю хорошими знаниями в таких языках, как <strong>Python, Bash, HTML,
+                            JavaScript и Go.</strong> Я прошел большое количество курсов по DevOps и уверенно использую
+                        операционные системы семейства Linux, постоянно стремлюсь углубить свои знания в этой
+                        области.<br>
+                        Чтобы узнать больше, переходите в раздел "Навыки и проекты".<br>
+                        Если вы хотите связаться со мной, то можете это сделать через любую из социальных сетей.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== SKILLS SECTION =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Навыки</h2>
+
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">Навыки</h2>
+                    <p class="skills__text"></p>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <span class="skills__name">Linux</span>
+                        </div>
+                        <div class="skills__bar skills__html">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <span class="skills__name">Python</span>
+                        </div>
+                        <div class="skills__bar skills__css">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">60%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <span class="skills__name">Bash</span>
+                        </div>
+                        <div class="skills__bar skills__js">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">50%</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <span class="skills__name">DevOps-библиотеки</span>
+                        </div>
+                        <div class="skills__bar skills__ux">
+
+                        </div>
+                        <div>
+                            <span class="skills__percentage">65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/img/WhatsApp-Image-2018-09-26-at-5.08.11-PM.jpeg" alt="" class="skills__img">
+                </div>
+            </div>
+        </section>
+
+        <!--===== WORK SECTION =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Путь обучения</h2>
+
+            <div class="work__container bd-grid">
+                <div class="work__img">
+                    <a href="https://devops.codeby.school/"><img src="assets/img/work2.png" alt="Курс DevOps 1"></a>
+                    <p><strong>Курс по основам DevOps</strong></p>
+                </div>
+                <div class="work__img">
+                    <a href="https://devops.lifeisfile.com/courses/kubernetes_advanced//"><img
+                            src="assets/img/work1.jpg" alt="Курс DevOps 2"></a>
+                    <p><strong>Продвинутый курс по Kubernetes</strong></p>
+                </div>
+                <div class="work__img">
+                    <a href="https://ru.hexlet.io/courses/ansible/"><img src="assets/img/work3.png"
+                            alt="Курс DevOps 3"></a>
+                    <p><strong>Автоматизация процессов с Ansible</strong></p>
+                </div>
+                <div class="work__img">
+                    <a href="https://devops.lifeisfile.com/courses/ci_cd/"><img src="assets/img/redivivus logo.png"
+                            alt="Курс DevOps 4"></a>
+                    <p><strong>CI/CD на основе Jenkins</strong></p>
+                </div>
+                <div class="work__img">
+                    <a href="https://skillbox.ru/course/linux-os-administration/"><img src="assets/img/work4.jpg"
+                            alt="Курс DevOps 5"></a>
+                    <p><strong>Администрирование ОС Linux</strong></p>
+                </div>
+                <div class="work__img">
+                    <a href="https://slurm.io/docker/"><img src="assets/img/work5.png" alt="Курс DevOps 6"></a>
+                    <p><strong>Docker для админов</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Оставить отзыв</h2>
+
+            <div class="contact__container bd-grid">
+                <form id="feedbackForm" action="assets/php/submit-feedback.php" method="POST" class="contact__form">
+                    <input type="text" name="name" placeholder="Ваше имя" class="contact__input" required>
+                    <input type="text" name="company" placeholder="Название компании" class="contact__input">
+                    <input type="email" name="email" placeholder="Почта" class="contact__input">
+                    <textarea name="message" placeholder="Сообщение" cols="0" rows="10" class="contact__input"
+                        required></textarea>
+                    <div class="contact__button-container">
+                        <input type="submit" value="Отправить" class="button">
+                    </div>
+                </form>
+                <!-- Контейнер для уведомления -->
+                <div id="notification" class="notification" style="display: none;">
+                    <p id="notificationMessage"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER_TITLE =====-->
+    <footer class="footer">
+        <p class="footer__title">Pavlovich Vlad - Junior DevOps Engineer</p>
+        <div class="footer__social">
+            <!-- <a href="https://www.instagram.com/_blackstl" class="footer__icon"><i class='bx bxl-facebook' ></i></a> -->
+            <a href="https://www.instagram.com/_blackstl" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="https://t.me/femid00" class="footer__icon"><i class='bx bxl-telegram'></i></a>
+            <a href="https://github.com/spoveddd" class="footer__icon"><i class='bx bxl-github'></i></a>
+        </div>
+        <p>&#169; 2024. Все права защищены</p>
+    </footer>
 
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-        <!--===== MAIN JAVA SCRIPT =====-->
-        <script src="assets/js/main.js"></script>
-        <script>
-            function myFunction() {
-               var element = document.body;
-               element.classList.toggle("dark-mode");
-            }
-        </script>
-    </body>
+    <!--===== MAIN JAVA SCRIPT =====-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+
 </html>
