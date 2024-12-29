@@ -124,15 +124,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $fileName = basename($filePath);
                             $fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
                             
+                            // Показать имя файла
+                            echo "<span class='feedback-file-name'>$fileName</span>";
+                            
                             // Проверяем тип файла
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) { 
-                                // Если изображение, показываем его
                                 echo "<img src='../uploads/$fileName' alt='$fileName' class='feedback-file-image' />";
                             } elseif (in_array($fileExtension, ['pdf'])) {
-                                // Если PDF, показываем ссылку для скачивания
                                 echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Открыть PDF</a>";
+                            } elseif (in_array($fileExtension, ['doc', 'docx'])) {
+                                echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Скачать Word документ</a>";
                             } else {
-                                // Для других типов, просто показываем ссылку на файл
                                 echo "<a href='../uploads/$fileName' target='_blank' class='feedback-file-link'>Скачать файл</a>";
                             }
                             ?>

@@ -19,8 +19,14 @@ if (isset($_FILES['file'])) {
     // Проверяем наличие ошибок при загрузке
     if ($fileError === UPLOAD_ERR_OK) {
 
-        $allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
-        if (!in_array($_FILES['file']['type'], $allowedTypes)) {
+        $allowedTypes = [
+            'image/jpeg', 
+            'image/png', 
+            'application/pdf', 
+            'application/msword',       // Для .doc
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' // Для .docx
+        ];
+                if (!in_array($_FILES['file']['type'], $allowedTypes)) {
             echo json_encode(["status" => "error", "message" => "Неверный тип файла."]);
             exit;
         }
