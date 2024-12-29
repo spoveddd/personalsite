@@ -53,7 +53,7 @@ if (isset($_FILES['file'])) {
 }
 
 // Вставка данных в базу
-$query = "INSERT INTO feedback (name, company, email, message) VALUES (:name, :company, :email, :message)";
+$query = "INSERT INTO feedback (name, company, email, message, file) VALUES (:name, :company, :email, :message, :file)";
 $stmt = $db->prepare($query);
 
 // Привязываем параметры
