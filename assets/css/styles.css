@@ -422,42 +422,6 @@ img {
   outline: none;
 }
 
-/* ====  FILE =====*/
-#fileInput {
-  display: none;
-  /* Скрываем стандартное поле выбора файла */
-}
-
-/* Стили для отображения кнопки */
-.file-info {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-#fileName {
-  font-size: 14px;
-  color: #555;
-  margin-left: 10px;
-}
-
-/* Кнопка для выбора файла */
-.contact__input[type="file"]+label {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.contact__input[type="file"]+label:hover {
-  background-color: #45a049;
-}
-
-
 /* ====  MONITORING =====*/
 .monitoring-section {
   margin-bottom: 20px;
