@@ -37,6 +37,7 @@ $stmt->bindValue(':name', $name, SQLITE3_TEXT);
 $stmt->bindValue(':company', $company, SQLITE3_TEXT);
 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
 $stmt->bindValue(':message', $message, SQLITE3_TEXT);
+$stmt->bindValue(':file', $file, SQLITE3_TEXT);  
 
 // Выполняем запрос
 if ($stmt->execute()) {
