@@ -13,17 +13,51 @@ $message = $_POST['message'];
 
 // Обработка загруженного файла
 $file = null;
-if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
-    // Директория для сохранения файлов
-    $uploadDir = '../uploads/';
-    $fileName = basename($_FILES['file']['name']);
-    $filePath = $uploadDir . $fileName;
+if (isset($_FILES['file'])) {
+    $fileError = $_FILES['file']['error'];
 
-    // Перемещение загруженного файла в нужную директорию
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $filePath)) {
-        $file = $filePath;  // Сохраняем путь к файлу
+    // Проверяем наличие ошибок при загрузке
+    if ($fileError === UPLOAD_ERR_OK) {
+
+        $allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+        if (!in_array($_FILES['file']['type'], $allowedTypes)) {
+            echo json_encode(["status" => "error", "message" => "Неверный тип файла."]);
+            exit;
+        }
+
+        // Ограничение размера файла
+        $maxFileSize = 5 * 1024 * 1024; // 5MB
+        if ($_FILES['file']['size'] > $maxFileSize) {
+            echo json_encode(["status" => "error", "message" => "Размер файла слишком большой."]);
+            exit;
+        }
+
+        // Директория для сохранения файлов
+        $uploadDir = '../uploads/';
+        $fileName = basename($_FILES['file']['name']);
+        $filePath = $uploadDir . $fileName;
+
+        // Перемещение загруженного файла в нужную директорию
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $filePath)) {
+            $file = $filePath;  // Сохраняем путь к файлу
+        } else {
+            echo json_encode(["status" => "error", "message" => "Не удалось переместить файл."]);
+            exit;
+        }
     } else {
-        echo json_encode(["status" => "error", "message" => "Ошибка при загрузке файла."]);
+        // Сообщаем о причине ошибки загрузки
+        $errorMessages = [
+            UPLOAD_ERR_INI_SIZE => 'Файл превышает максимальный размер, указанный в конфигурации PHP.',
+            UPLOAD_ERR_FORM_SIZE => 'Файл превышает максимальный размер, указанный в форме HTML.',
+            UPLOAD_ERR_PARTIAL => 'Файл был загружен только частично.',
+            UPLOAD_ERR_NO_FILE => 'Файл не был загружен.',
+            UPLOAD_ERR_NO_TMP_DIR => 'Отсутствует временная папка.',
+            UPLOAD_ERR_CANT_WRITE => 'Не удалось записать файл на диск.',
+            UPLOAD_ERR_EXTENSION => 'Загрузка файла остановлена расширением.',
+        ];
+
+        $message = isset($errorMessages[$fileError]) ? $errorMessages[$fileError] : 'Неизвестная ошибка.';
+        echo json_encode(["status" => "error", "message" => "Ошибка при загрузке файла: " . $message]);
         exit;
     }
 }
