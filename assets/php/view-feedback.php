@@ -76,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        
         <!-- Блок мониторинга -->
         <div class="monitoring-section">
-            <h3 class="monitoring-title">Мониторинг сервера</h3>
+            <h3 class="monitoring-title">Состояниие сервера</h3>
             <div class="monitoring-metrics">
-                <p><strong>Состояние сервера (аптайм):</strong> <?php echo htmlspecialchars($serverUptime ? gmdate('H:i:s', $serverUptime) : 'Недоступно'); ?></p>
-                <p><strong>Средняя нагрузка:</strong> <?php echo htmlspecialchars($loadAverage ? number_format($loadAverage, 2) : 'Недоступно'); ?></p>
+                <p><strong>Uptime сервера:</strong> <?php echo htmlspecialchars($serverUptime ? gmdate('H:i:s', $serverUptime) : 'Недоступно'); ?></p>
+                <p><strong>Средняя нагрузка (LA):</strong> <?php echo htmlspecialchars($loadAverage ? number_format($loadAverage, 2) : 'Недоступно'); ?></p>
                 <p><strong>Использование CPU:</strong> <?php echo htmlspecialchars($cpuUsage ? number_format($cpuUsage, 2) : 'Недоступно'); ?>%</p>
                 <p><strong>Использование RAM:</strong> <?php echo htmlspecialchars($ramUsed ? number_format($ramUsed, 2) : 'Недоступно'); ?>%</p>
                 <p><strong>Использование диска:</strong> <?php echo htmlspecialchars($diskUsage ? number_format($diskUsage, 2) : 'Недоступно'); ?>%</p>
