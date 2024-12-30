@@ -249,6 +249,7 @@ img {
   position: absolute;
   right: 0;
   bottom: 0;
+  margin-bottom: 20px;
   width: 295px;
   height: auto;
   size: 400px;
@@ -265,7 +266,6 @@ img {
   padding: .75rem 2.5rem;
   position: relative;
   z-index: 10;
-  margin-top: 20px;
   font-weight: var(--font-semi);
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
