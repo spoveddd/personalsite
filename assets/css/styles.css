@@ -248,13 +248,13 @@ img {
 .home__img {
   position: absolute;
   right: 0;
-  bottom: 40px;
+  bottom: 0;
   width: 295px;
   height: auto;
   size: 400px;
   border-radius: 15px;
   box-shadow: 15px 15px 8px grey;
-  bottom: 10%;
+  bottom: 20%;
 }
 
 /* BUTTONS */
