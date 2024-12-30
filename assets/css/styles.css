@@ -248,8 +248,7 @@ img {
 .home__img {
   position: absolute;
   right: 0;
-  bottom: 0;
-  margin-bottom: 20px;
+  bottom: 20px;
   width: 295px;
   height: auto;
   size: 400px;
