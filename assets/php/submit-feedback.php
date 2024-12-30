@@ -13,12 +13,12 @@ $message = $_POST['message'];
 
 // Обработка загруженного файла
 $file = null;
-if (isset($_FILES['file'])) {
+
+if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
     $fileError = $_FILES['file']['error'];
 
     // Проверяем наличие ошибок при загрузке
     if ($fileError === UPLOAD_ERR_OK) {
-
         $allowedTypes = [
             'image/jpeg', 
             'image/png', 
@@ -26,7 +26,8 @@ if (isset($_FILES['file'])) {
             'application/msword',       
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
         ];
-                if (!in_array($_FILES['file']['type'], $allowedTypes)) {
+
+        if (!in_array($_FILES['file']['type'], $allowedTypes)) {
             echo json_encode(["status" => "error", "message" => "Неверный тип файла."]);
             exit;
         }
@@ -51,7 +52,15 @@ if (isset($_FILES['file'])) {
             exit;
         }
     } else {
-        
+        $errorMessages = [
+            UPLOAD_ERR_INI_SIZE => 'Размер файла превышает допустимый сервером.',
+            UPLOAD_ERR_FORM_SIZE => 'Размер файла превышает допустимый формой.',
+            UPLOAD_ERR_PARTIAL => 'Файл был загружен частично.',
+            UPLOAD_ERR_NO_FILE => 'Файл не был загружен.',
+            UPLOAD_ERR_NO_TMP_DIR => 'Временная папка отсутствует.',
+            UPLOAD_ERR_CANT_WRITE => 'Ошибка записи файла на диск.',
+            UPLOAD_ERR_EXTENSION => 'Загрузка файла остановлена расширением PHP.',
+        ];
         $message = isset($errorMessages[$fileError]) ? $errorMessages[$fileError] : 'Неизвестная ошибка.';
         echo json_encode(["status" => "error", "message" => "Ошибка при загрузке файла: " . $message]);
         exit;
@@ -77,4 +86,5 @@ if ($stmt->execute()) {
     // Ответ с ошибкой
     echo json_encode(["status" => "error", "message" => "Произошла ошибка при отправке."]);
 }
+
 ?>
